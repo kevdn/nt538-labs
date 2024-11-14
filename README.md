@@ -5,7 +5,7 @@
 </p>
 
 <!-- Title -->
-<h1 align="center"><b>NT548.P11 - Công nghệ DevOps và ứng dụng</b></h1>
+<h1 align="center"><b>NT538.P11 - Giải thuật xử lý song song và phân bố</b></h1>
 
 ## BẢNG MỤC LỤC
 
@@ -26,7 +26,8 @@
 
 <a name="giangvien"></a>
 
-- Ths **Lê Thanh Tuấn**
+- Ts **Lê Kim Hùng**
+- Ths **Lê Minh Khánh Hội**
 
 ## THÀNH VIÊN NHÓM
 
