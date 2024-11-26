@@ -41,3 +41,4 @@
 <a name="noidung"></a>
 - 1. Thực hiện thuận toán prefix sum bằng tính toán song song.
 - 2. Thực hiện thuật toán nhân ma trận bằng tính toán song song.
+- 3. Thực hiện thuật toán sort bằng tính toán song song.
