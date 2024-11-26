@@ -17,16 +17,8 @@ def merge(left, right):
     result.extend(right[j:])
     return result
 
-def merge_sort_descending(arr):
-    # Sort một mảng theo thứ tự giảm dần
-    if len(arr) <= 1:
-        return arr
-        
-    mid = len(arr) // 2
-    left = merge_sort_descending(arr[:mid])
-    right = merge_sort_descending(arr[mid:])
-    
-    return merge(left, right)
+def sort_descending(arr):
+    return sorted(arr, reverse=True)
 
 def parallel_sorting_descending(array_a):
     # Số core được sử dụng
@@ -35,22 +27,19 @@ def parallel_sorting_descending(array_a):
     # Tính kích thước của mỗi phần
     chunk_size = len(array_a) // num_cores
     
-    # Chia mảng thành 4 phần bằng nhau
+    # Chia mảng thành các chunks
     chunks = [array_a[i:i + chunk_size] for i in range(0, len(array_a), chunk_size)]
-    
-    # Nếu số phần tử không chia hết cho 4, gộp phần dư vào chunk cuối
-    if len(chunks) > num_cores:
-        chunks[num_cores-1].extend(chunks[num_cores:])
-        chunks = chunks[:num_cores]
-    
     # Tạo pool với 4 processes
     with Pool(processes=num_cores) as pool:
-        # Sort song song các chunks
-        sorted_chunks = pool.map(merge_sort_descending, chunks)
+        # Sort tuần tự
+        sorted_chunks = pool.map(sort_descending, chunks)
     
     # Merge các chunks đã sort
-    final_result = sorted_chunks[0]
-    for i in range(1, len(sorted_chunks)):
-        final_result = merge(final_result, sorted_chunks[i])
+    final_result = []
+    for chunk in sorted_chunks: 
+        final_result = merge(final_result, chunk)
     
     return final_result
+
+a = [1, 2, 3, 4, 5, 6, 7,8, 1, 2, 3, 4, 5]
+print(parallel_sorting_descending(a))
